@@ -24,7 +24,6 @@ public class Arrow : MonoBehaviour
     float calcAngle(Vector2 vel)
     {
         float angle = Mathf.Atan2(vel.y, vel.x) * Mathf.Rad2Deg;
-        print(angle);
         return angle;
     }
 }
