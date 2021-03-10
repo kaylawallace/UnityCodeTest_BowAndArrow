@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour
 
     void Update()
     {
-        float angle = calcAngle(rb.velocity);
+        float angle = getLookRotation(rb.velocity);
         // Rotates the arrow based on the value returned by calcAngle 
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         
@@ -24,16 +24,16 @@ public class Arrow : MonoBehaviour
 
     /*
      * Method to calculate the angle in which the arrow should rotate at to follow an arc 
-     * Param: vel - velocity of the arrow 
+     * Param: velocity - velocity of the arrow 
      * Return: angle - the angle the arrow should rotate at to follow an arc
      */
-    float calcAngle(Vector2 vel)
+    float getLookRotation(Vector2 velocity)
     {
         // Atan2 calculates angle=tan(y/x)
-        // Angle = angle between x-axis and 2D vector starting at 0 and finishing at (x,y)
+        // angle = angle between x-axis and 2D vector starting at 0 and finishing at (x,y)
         // Rad2Deg converts from radians to degrees 
         // Reference: https://docs.unity3d.com/ScriptReference/Mathf.Atan2.html
-        float angle = Mathf.Atan2(vel.y, vel.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         return angle;
     }
 }
